@@ -1,7 +1,7 @@
 <div ng-controller='cliController'>
 
 <button ng-click="fetch()">Click for word</button>
-<div> {{data}} </div>
+<div> {{givenword.ranword}} </div>
 <form name="gameIn">
 	<input type='text' name="typed" ng-model="gameword.word" ng-change="gameWord()"></input>
 </form>

@@ -3,7 +3,8 @@ angular.module('typeget.cli', [])
   .controller('cliController', ['$scope', '$http', function($scope, $http){
   	$scope.method = 'GET';
     $scope.url = 'http://randomword.setgetgo.com/get.php';
-    $scope.gameword = {word: ''};
+    $scope.gameword = {word: null};
+    $scope.givenword = {ranword: null};
     $scope.fetch = function() {
       $scope.code = null;
       $scope.response = null;
@@ -11,20 +12,21 @@ angular.module('typeget.cli', [])
       $http({method: $scope.method, url: $scope.url}).
         then(function(response) {
           $scope.status = response.status;
-          $scope.data = response.data;
-          console.log(response.data)
-
+          $scope.givenword.ranword = response.data;
         }, function(response) {
           $scope.data = response.data || "Request failed";
           $scope.status = response.status;
       });
     };
     $scope.gameWord = function(){
-      $scope.given = $scope.data;
-      $scope.expected = $scope.gameword.word;
-      console.log(typeof $scope.given, typeof $scope.expected)
-       if(angular.equals($scope.given, $scope.expected)){
-        console.log('its not bokred!!!!!!!!!!!!!1')
+      var expected = $scope.gameword.word;
+      // var given = $scope.givenword.ranword;
+      var given = $scope.givenword.ranword.substring(0, $scope.givenword.ranword.length -2);
+      console.log(given.length, expected.length);
+      if(expected === given){
+        $scope.fetch();
+        $scope.gameword.word = null;
+        console.log('ITS NOT BOKRED!!!!!!!!!!!!!1 360 NO SCOPE MLG STATUS')
       }else{
         console.log('its really borked')
       }   
