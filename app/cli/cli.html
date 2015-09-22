@@ -1,8 +1,9 @@
-<div>
+<div ng-controller='cliController'>
 
 <button ng-click="fetch()">Click for word</button>
 <div> {{data}} </div>
-<!-- <form>
-	<input type='text'></input>
-</form> -->
+<form name="gameIn">
+	<input type='text' name="typed" ng-model="gameword.word" ng-change="gameWord()"></input>
+</form>
+<tt>{{gameIn.typed.$modelValue}}</tt>
 </div>

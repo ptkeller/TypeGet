@@ -1,6 +1,7 @@
 var typeget = angular.module('typeget', [
   'typeget.cli',
   'ngRoute',
+  'typeget.logic'
 ])
     .config(function($routeProvider, $locationProvider){
       $routeProvider
