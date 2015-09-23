@@ -1,13 +1,13 @@
 angular.module('typeget.cli', [])
  
-  .controller('cliController', ['$scope', '$http', '$timeout','$location', function($scope, $http, $timeout, $location){
+  .controller('cliController', ['$scope', '$http', '$timeout','$location','$rootScope', function($scope, $http, $timeout, $location, $rootScope){
   	$scope.method = 'GET';
     $scope.url = 'http://randomword.setgetgo.com/get.php';
     $scope.gameword = {word: null};
     $scope.givenword = {ranword: null};
-    $scope.timeSet = 10;
-    $scope.playerScore = 0;
-
+    $scope.timeSet = 60;
+    $rootScope.playerScore = 0;
+    // $scope.wpm = $rootScope.playerScore/60;
     $scope.fetch = function() {
       $scope.code = null;
       $scope.response = null;
@@ -28,7 +28,7 @@ angular.module('typeget.cli', [])
       var given = $scope.givenword.ranword.substring(0, $scope.givenword.ranword.length -2);
       console.log(given.length, expected.length);
       if(expected === given){
-        $scope.playerScore++;
+        $rootScope.playerScore++;
         console.log($scope.playerScore)
         $scope.fetch();
         $scope.gameword.word = null;

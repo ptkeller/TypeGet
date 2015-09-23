@@ -1,7 +1,7 @@
 angular.module('typeget.score', [])
-	.controller('scoreCon', [ '$scope', function($scope){
+	.controller('scoreCon', [ '$scope','$rootScope', function($scope, $rootScope){
 		$scope.score = [{
-			score: $scope.playerScore
+			score: $rootScope.playerScore
 		}]
 	}
 ])

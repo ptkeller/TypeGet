@@ -3,5 +3,7 @@ angular.module('typeget.timer', [])
 		$scope.win = [{
 			winner: 'GAME OVER'
 		}]
-		
+		$scope.advance = function(){
+			$location.path('/scorescreen')
+		}
 	}])

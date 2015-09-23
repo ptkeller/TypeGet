@@ -25,3 +25,14 @@ img {
 	font-family: 'Play';
 	font-size: 85px;
 }
+
+.GO{
+	text-align: center;
+	font-family: 'Play';
+	font-size: 350px;
+}
+.finalScore{
+		text-align: center;
+	font-family: 'Play';
+	font-size: 350px;
+}
