@@ -1,12 +1,13 @@
 angular.module('typeget.cli', [])
  
-  .controller('cliController', ['$scope', '$http', function($scope, $http){
+  .controller('cliController', ['$scope', '$http', '$timeout','$location', function($scope, $http, $timeout, $location){
   	$scope.method = 'GET';
     $scope.url = 'http://randomword.setgetgo.com/get.php';
     $scope.gameword = {word: null};
     $scope.givenword = {ranword: null};
-    $scope.timeSet = 60;
-    
+    $scope.timeSet = 10;
+    $scope.playerScore = 0;
+
     $scope.fetch = function() {
       $scope.code = null;
       $scope.response = null;
@@ -27,6 +28,8 @@ angular.module('typeget.cli', [])
       var given = $scope.givenword.ranword.substring(0, $scope.givenword.ranword.length -2);
       console.log(given.length, expected.length);
       if(expected === given){
+        $scope.playerScore++;
+        console.log($scope.playerScore)
         $scope.fetch();
         $scope.gameword.word = null;
         console.log('ITS NOT BOKRED!!!!!!!!!!!!!1 360 NO SCOPE MLG STATUS')
@@ -35,12 +38,15 @@ angular.module('typeget.cli', [])
       }   
       }
       $scope.Timer = function(){
-        console.log($scope.timeSet)
-      if($scope.timeSet >= 0){
-      setInterval(function(){
-        $scope.timeSet--
-      }, 1000)
-      }
-    }     
+        $scope.timeSet--;
+        if ($scope.timeSet >= 0) {
+          console.log($scope.timeSet)
+          $timeout($scope.Timer, 1000)
+          }
+        else {
+            $location.path('/gameover')
+        }
+    }
+         
 
 }])
