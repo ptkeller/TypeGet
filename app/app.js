@@ -1,7 +1,7 @@
 var typeget = angular.module('typeget', [
   'typeget.cli',
   'ngRoute',
-  'typeget.timer'
+  // 'typeget.timer'
 ])
     .config(function($routeProvider, $locationProvider){
       $routeProvider

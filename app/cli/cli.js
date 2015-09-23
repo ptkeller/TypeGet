@@ -5,6 +5,7 @@ angular.module('typeget.cli', [])
     $scope.url = 'http://randomword.setgetgo.com/get.php';
     $scope.gameword = {word: null};
     $scope.givenword = {ranword: null};
+    $scope.timeSet = 60;
     
     $scope.fetch = function() {
       $scope.code = null;
@@ -32,6 +33,14 @@ angular.module('typeget.cli', [])
       }else{
         console.log('its really borked')
       }   
-      }     
+      }
+      $scope.Timer = function(){
+        console.log($scope.timeSet)
+      if($scope.timeSet >= 0){
+      setInterval(function(){
+        $scope.timeSet--
+      }, 1000)
+      }
+    }     
 
 }])
