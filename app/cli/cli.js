@@ -5,6 +5,7 @@ angular.module('typeget.cli', [])
     $scope.url = 'http://randomword.setgetgo.com/get.php';
     $scope.gameword = {word: null};
     $scope.givenword = {ranword: null};
+    
     $scope.fetch = function() {
       $scope.code = null;
       $scope.response = null;
@@ -18,6 +19,7 @@ angular.module('typeget.cli', [])
           $scope.status = response.status;
       });
     };
+    
     $scope.gameWord = function(){
       var expected = $scope.gameword.word;
       // var given = $scope.givenword.ranword;
