@@ -1,9 +1,12 @@
-<div ng-controller='cliController'>
+<div ng-controller='cliController' class="mainCon">
 
 <button ng-click="fetch()">Click for word</button>
-<div> {{givenword.ranword}} </div>
+
+<div class="theWord"> {{givenword.ranword}} </div>
+<div class="theonly">
 <form name="gameIn">
-	<input type='text' name="typed" ng-model="gameword.word" ng-change="gameWord()"></input>
+	<input type='text' name="typed" ng-model="gameword.word" ng-change="gameWord()" class="userGame"></input>
 </form>
-<tt>{{gameIn.typed.$modelValue}}</tt>
+</div>
+<!-- <tt>{{gameIn.typed.$modelValue}}</tt> -->
 </div>
