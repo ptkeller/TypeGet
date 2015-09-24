@@ -1,3 +1,11 @@
 <div ng-controller='scoreCon' ng-repeat="ps in score" class="finalScore">
-{{ps.score}}
+	{{ps.score}}
+</div>
+<div ng-controller='scoreCon'>
+	<input name='playerinput' ng-model="players.player">Type yo Name</input>
+	{{players.player}}
+	<input type='submit' ng-click="leadAdd()" value='did you stack up?'></input><br>
+
+<div class='testDiv'></div>
+
 </div>
